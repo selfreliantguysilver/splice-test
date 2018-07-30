@@ -55,7 +55,7 @@
   </ul>
 </div>
 	
-	<div class="shopping-cart-item" v-for="cartItem in cartItems" v-show="cartItems.length>0">
+	<div class="shopping-cart-item" v-for="(cartItem, index) in cartItems" v-show="cartItems.length>0">
 	
       <img :src="cartItem.image"> 
       <div class="shopping-cart-item-name">
@@ -64,8 +64,8 @@
       </div>
       <div class="shopping-cart-item-price cart-price">
 	  <a @click="deleteItem(index)"><img src="assets/delete.svg"></a>
-        <p class="shopping-cart-price">R{{ cartItem.price }}.00</p>
-        
+        <p class="shopping-cart-price">R{{ cartItem.price }}.00 </p>
+			
       </div>
     </div>
 
@@ -439,7 +439,7 @@
           },
 	  deleteItem: function (index) {
       console.log(index);
-      console.log(this.cartItems);
+    
       this.cartItems.splice(index, 1);
     }
         }
